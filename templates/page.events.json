@@ -1,0 +1,10 @@
+{
+    "sections": {
+      "main": {
+        "type": "events-filter-header"
+      }
+    },
+    "order": [
+      "main"
+    ]
+  }

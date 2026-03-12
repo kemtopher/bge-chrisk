@@ -1,0 +1,84 @@
+{{ 'events-filters.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'events-filters.js' | asset_url }}" defer></script>
+
+<section class="events-filter-header page-width">
+
+  <!-- ROW 1 -->
+  <div class="events-header-row events-header-row--top">
+    <div class="events-header-left">
+      <h1 class="events-title">
+        {{ page.title }}
+        <span class="events-count">0 Events</span>
+      </h1>
+    </div>
+
+    <div class="events-header-right">
+
+      <div class="events-search">
+        <input
+          type="search"
+          placeholder="Search Events"
+          class="events-search-input"
+        >
+      </div>
+
+      <select class="events-sort">
+        <option value="date">Date</option>
+        <option value="title">Title</option>
+      </select>
+
+    </div>
+  </div>
+
+  <!-- ROW 2 -->
+  <div class="events-header-row events-header-row--filters">
+
+    <button class="events-filter-trigger">
+      Filters ^
+    </button>
+
+    <div class="events-filter-group">
+      <button class="filter-dropdown">
+        Category
+      </button>
+    </div>
+
+    <div class="events-filter-group">
+      <button class="filter-dropdown">
+        Location
+      </button>
+    </div>
+
+  </div>
+
+  <!-- ROW 3 -->
+  <div class="events-header-row events-header-row--pills">
+
+    <div class="events-active-filters">
+
+      <span class="filter-pill">
+        Music
+        <button class="filter-pill-remove">×</button>
+      </span>
+
+    </div>
+
+    <button class="clear-filters">
+      Clear Filters
+    </button>
+
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Events Filter Header",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Events Filter Header"
+    }
+  ]
+}
+{% endschema %}
