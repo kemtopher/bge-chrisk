@@ -1,5 +1,12 @@
 {
     "sections": {
+        "banner": {
+            "type": "events-banner",
+            "settings": {
+                "padding_top": 36,
+                "padding_bottom": 36
+            }
+        },
         "events": {
             "type": "events-filter",
             "settings": {
@@ -8,5 +15,5 @@
             }
         }
     },
-    "order": ["events"]
+    "order": ["banner", "events"]
 }

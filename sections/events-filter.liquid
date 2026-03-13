@@ -1,74 +1,81 @@
 {{ 'events-filters.css' | asset_url | stylesheet_tag }}
+{{ 'events-filter-select.css' | asset_url | stylesheet_tag }}
+{{ 'events-card.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'events-filters.js' | asset_url }}" defer></script>
+<script src="{{ 'events-filter-select.js' | asset_url }}" defer></script>
 
-<section class="events-filter-header page-width">
+{% assign origin_options = 'GA|georgia,OH|ohio,NJ|new-jersey,MD|maryland' | split: ',' %}
+{% assign type_options = 'Demo|demo,Eggfest|eggfest,Culinary|culinary' | split: ',' %}
+{% assign month_options = 'January|january,February|february,March|march,April|april' | split: ',' %}
 
-  <!-- ROW 1 -->
-  <div class="events-header-row events-header-row--top">
-    <div class="events-header-left">
-      <h1 class="events-title">
-        {{ page.title }}
-        <span class="events-count">0 Events</span>
-      </h1>
+<section class="events-filter">
+
+  <div class="events-filter__wrapper">
+    <div class="events-filter__row filter__title-row">
+      <h2 class="events-filter__section-title typography__large-header">Search Local Events</h2>
     </div>
 
-    <div class="events-header-right">
+    {% comment %} <div class="events-filter__row">
+      {% render 'component-search-field' %}
+    </div> {% endcomment %}
+    <div class="events-filter__row filter-search__flex-row">
+      <div class="filters__full-row">
+        <h5 class="events-filter__title">Filter Events By:</h5>
+        <div class="events-filter__flex-row">
+          {% render 'component-filter-select',
+            id: 'filter-origin',
+            name: 'origin',
+            placeholder: 'State',
+            options: origin_options
+          %}
 
-      <div class="events-search">
-        <input
-          type="search"
-          placeholder="Search Events"
-          class="events-search-input"
-        >
+          {% render 'component-filter-select',
+            id: 'filter-type',
+            name: 'type',
+            placeholder: 'Event Type',
+            options: type_options
+          %}
+
+          {% render 'component-filter-select',
+            id: 'filter-month',
+            name: 'month',
+            placeholder: 'By Month',
+            options: month_options
+          %}
+        </div>
       </div>
+      <div class="search-field__container">
+        {% render 'component-search-field' %}
+      </div>
+    </div>
 
-      <select class="events-sort">
-        <option value="date">Date</option>
-        <option value="title">Title</option>
-      </select>
+    <div class="events-filter__row">
+      <div class="events-results__wrapper">
+        <div class="results-options">
+          <p class="events-filter__results">3 events found</p>
+          {% render 'component-sort-field',
+            id: 'events-sort',
+            name: 'sort'
+          %}
+        </div>
+        <div class="events-grid">
+            {% for event in collections.events.products limit: 4 %}
+              {% render 'component-event-card',
+                event_title: event.title,
+                event_image: event.featured_image,
+                event_url: event.url
+              %}
+            {% endfor %}
+        </div>
+      </div>
+    </div>
 
+    <div class="events-filter__row">
+            <div class="calendar-link">
+              <a href="https://biggreenegg.com/apps/events/calendar">View Full Calendar of Events</a>
+            </div>
     </div>
   </div>
-
-  <!-- ROW 2 -->
-  <div class="events-header-row events-header-row--filters">
-
-    <button class="events-filter-trigger">
-      Filters ^
-    </button>
-
-    <div class="events-filter-group">
-      <button class="filter-dropdown">
-        Category
-      </button>
-    </div>
-
-    <div class="events-filter-group">
-      <button class="filter-dropdown">
-        Location
-      </button>
-    </div>
-
-  </div>
-
-  <!-- ROW 3 -->
-  <div class="events-header-row events-header-row--pills">
-
-    <div class="events-active-filters">
-
-      <span class="filter-pill">
-        Music
-        <button class="filter-pill-remove">×</button>
-      </span>
-
-    </div>
-
-    <button class="clear-filters">
-      Clear Filters
-    </button>
-
-  </div>
-
 </section>
 
 {% schema %}

@@ -1,0 +1,39 @@
+{{ 'events-sort.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign select_id = id | default: 'sort-select'
+  assign select_name = name | default: 'sort'
+  assign current_value = selected_value | default: ''
+-%}
+
+<div class="sort-select">
+  <label class="visually-hidden" for="{{ select_id }}">Sort</label>
+
+  <div class="sort-select__wrapper">
+    <select
+      id="{{ select_id }}"
+      name="{{ select_name }}"
+      class="sort-select__input"
+    >
+        <option value="" disabled selected>Sort</option>
+        <option value="date-asc" {% if current_value == 'date-asc' %}selected{% endif %}>
+            Ascending date
+        </option>
+        <option value="date-desc" {% if current_value == 'date-desc' %}selected{% endif %}>
+            Descending date
+        </option>
+        <option value="title-asc" {% if current_value == 'title-asc' %}selected{% endif %}>
+            Ascending title
+        </option>
+        <option value="title-desc" {% if current_value == 'title-desc' %}selected{% endif %}>
+            Descending title
+        </option>
+    </select>
+
+    <span class="sort-select__icon" aria-hidden="true">
+      <svg viewBox="0 0 20 20" focusable="false">
+        <path d="M5 7.5L10 12.5L15 7.5"></path>
+      </svg>
+    </span>
+  </div>
+</div>

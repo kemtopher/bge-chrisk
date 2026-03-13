@@ -1,0 +1,25 @@
+:root {
+    --primary: #f4f0e6;
+    --primary-green: #105742;
+    --primary-tan: #f4f0e6;
+    --primary-black: #212121;
+    --primary-white: #ffffff;
+
+    --off-white: #F5F5F7;
+
+    --full-padding: 68px;
+    --half-padding: 34px;
+    --small-padding: 17px;
+}
+
+.typography__large-header {
+    font-size: 5rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 600;
+}
+
+.typography__banner-copy {
+    font-size: 1.5rem;
+    font-family: Helvetica, sans-serif;
+    font-weight: 400;
+}

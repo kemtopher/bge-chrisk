@@ -1,0 +1,87 @@
+{%- comment -%}
+  Reusable filter dropdown with checkbox options.
+
+  Expected usage:
+
+  {% assign origin_options = 'Holland|holland,France|france,Ireland|ireland,Italy|italy,Spain|spain,Switzerland|switzerland' | split: ',' %}
+
+  {% render 'events-filter-select',
+    id: 'filter-origin',
+    name: 'origin',
+    placeholder: 'By Origin',
+    options: origin_options
+  %}
+
+  Each option should be in:
+  "Label|value"
+{%- endcomment -%}
+
+{%- liquid
+  assign filter_id = id | default: 'filter-select'
+  assign filter_name = name | default: 'filter'
+  assign filter_placeholder = placeholder | default: 'Filter'
+-%}
+
+<div
+  class="filter-select"
+  data-filter-select
+  data-filter-name="{{ filter_name }}"
+>
+  <div class="filter-select__wrapper">
+    <button
+      type="button"
+      class="filter-select__trigger"
+      aria-expanded="false"
+      aria-controls="{{ filter_id }}-dropdown"
+      data-filter-select-trigger
+    >
+      <span class="filter-select__trigger-label" data-filter-select-label>
+        {{ filter_placeholder }}
+      </span>
+
+      <span class="filter-select__icon" aria-hidden="true">
+        <svg viewBox="0 0 20 20" focusable="false">
+          <path d="M5 7.5L10 12.5L15 7.5"></path>
+        </svg>
+      </span>
+    </button>
+
+    <div
+      id="{{ filter_id }}-dropdown"
+      class="filter-select__dropdown"
+      hidden
+      data-filter-select-dropdown
+    >
+      <ul class="filter-select__options" role="list">
+        {%- for option_item in options -%}
+          {%- assign option_parts = option_item | split: '|' -%}
+          {%- assign option_label = option_parts[0] | strip -%}
+          {%- assign option_value = option_parts[1] | default: option_parts[0] | strip -%}
+
+          <li class="filter-select__option-item">
+            <label class="filter-select__option">
+              <span class="filter-select__option-text">
+                {{ option_label }}
+              </span>
+
+              <input
+                class="filter-select__checkbox"
+                type="checkbox"
+                value="{{ option_value }}"
+                data-filter-select-checkbox
+              >
+
+              <span class="filter-select__checkbox-ui" aria-hidden="true">
+                <svg viewBox="0 0 16 16" focusable="false">
+                  <path d="M3.5 8.5L6.5 11.5L12.5 4.5"></path>
+                </svg>
+              </span>
+            </label>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+
+    <div class="filter-select__hidden-inputs" data-filter-select-hidden-inputs></div>
+  </div>
+</div>
