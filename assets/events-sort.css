@@ -60,7 +60,7 @@
 }
 
 @media screen and (min-width: 750px) {
-    .sort-select__wrapper {
-        max-width: 300px;
-    }
+  .sort-select__wrapper {
+    max-width: 300px;
+  }
 }

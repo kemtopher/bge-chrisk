@@ -34,7 +34,7 @@
 #prototype-footer .prototype-footer__logo {
   display: inline-block;
   color: #f4efe6;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 52px;
   line-height: 1;
   font-weight: 700;
@@ -84,7 +84,7 @@
   border: 2px solid #d9d4c8;
   background: #e7e1d4;
   color: #0e6a4b;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 24px;
   font-weight: 700;
   cursor: pointer;
@@ -127,7 +127,7 @@
 #prototype-footer .prototype-footer__menu h3 {
   margin: 0 0 28px;
   color: #f4efe6;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 34px;
   line-height: 1.1;
   font-weight: 700;
@@ -179,7 +179,7 @@
 }
 
 #prototype-footer .prototype-footer__legal a + a::before {
-  content: "|";
+  content: '|';
   color: #111;
   margin-right: 18px;
 }

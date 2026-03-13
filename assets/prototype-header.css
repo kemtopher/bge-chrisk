@@ -95,7 +95,7 @@
 #prototype-header .prototype-header__icon svg {
   width: 26px;
   height: 26px;
-  stroke: currentColor;
+  stroke: var(--primary-green);
   fill: none;
   stroke-width: 1.7;
   stroke-linecap: round;

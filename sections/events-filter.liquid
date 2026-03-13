@@ -1,27 +1,30 @@
 {{ 'events-filters.css' | asset_url | stylesheet_tag }}
 {{ 'events-filter-select.css' | asset_url | stylesheet_tag }}
 {{ 'events-card.css' | asset_url | stylesheet_tag }}
-<script src="{{ 'events-filters.js' | asset_url }}" defer></script>
-<script src="{{ 'events-filter-select.js' | asset_url }}" defer></script>
+<script src='{{ 'events-filters.js' | asset_url }}' defer></script>
+<script src='{{ 'events-filter-select.js' | asset_url }}' defer></script>
 
 {% assign origin_options = 'GA|georgia,OH|ohio,NJ|new-jersey,MD|maryland' | split: ',' %}
 {% assign type_options = 'Demo|demo,Eggfest|eggfest,Culinary|culinary' | split: ',' %}
-{% assign month_options = 'January|january,February|february,March|march,April|april' | split: ',' %}
+{% assign month_options = 'January|january,February|february,March|march,April|april'
+  | split: ','
+%}
 
-<section class="events-filter">
-
-  <div class="events-filter__wrapper">
-    <div class="events-filter__row filter__title-row">
-      <h2 class="events-filter__section-title typography__large-header">Search Local Events</h2>
+<section class='events-filter'>
+  <div class='events-filter__wrapper'>
+    <div class='events-filter__row filter__title-row'>
+      <h2 class='events-filter__section-title typography__large-header'>Search Local Events</h2>
     </div>
 
-    {% comment %} <div class="events-filter__row">
-      {% render 'component-search-field' %}
-    </div> {% endcomment %}
-    <div class="events-filter__row filter-search__flex-row">
-      <div class="filters__full-row">
-        <h5 class="events-filter__title">Filter Events By:</h5>
-        <div class="events-filter__flex-row">
+    {% comment %}
+      <div class="events-filter__row">
+        {% render 'component-search-field' %}
+      </div>
+    {% endcomment %}
+    <div class='events-filter__row filter-search__flex-row'>
+      <div class='filters__full-row'>
+        <h5 class='events-filter__title'>Filter Events By:</h5>
+        <div class='events-filter__flex-row'>
           {% render 'component-filter-select',
             id: 'filter-origin',
             name: 'origin',
@@ -44,36 +47,33 @@
           %}
         </div>
       </div>
-      <div class="search-field__container">
+      <div class='search-field__container'>
         {% render 'component-search-field' %}
       </div>
     </div>
 
-    <div class="events-filter__row">
-      <div class="events-results__wrapper">
-        <div class="results-options">
-          <p class="events-filter__results">3 events found</p>
-          {% render 'component-sort-field',
-            id: 'events-sort',
-            name: 'sort'
-          %}
+    <div class='events-filter__row'>
+      <div class='events-results__wrapper'>
+        <div class='results-options'>
+          <p class='events-filter__results'>3 events found</p>
+          {% render 'component-sort-field', id: 'events-sort', name: 'sort' %}
         </div>
-        <div class="events-grid">
-            {% for event in collections.events.products limit: 4 %}
-              {% render 'component-event-card',
-                event_title: event.title,
-                event_image: event.featured_image,
-                event_url: event.url
-              %}
-            {% endfor %}
+        <div class='events-grid'>
+          {% for event in collections.events.products limit: 4 %}
+            {% render 'component-event-card',
+              event_title: event.title,
+              event_image: event.featured_image,
+              event_url: event.url
+            %}
+          {% endfor %}
         </div>
       </div>
     </div>
 
-    <div class="events-filter__row">
-            <div class="calendar-link">
-              <a href="https://biggreenegg.com/apps/events/calendar">View Full Calendar of Events</a>
-            </div>
+    <div class='events-filter__row'>
+      <div class='calendar-link'>
+        <a href='https://biggreenegg.com/apps/events/calendar'>View Full Calendar of Events</a>
+      </div>
     </div>
   </div>
 </section>

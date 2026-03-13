@@ -1,7 +1,7 @@
 .events-carousel {
-    min-height: 650px;
-    width: 100%;
-    background: var(--bg);
-    position: relative;
-    overflow: hidden;
+  min-height: 650px;
+  width: 100%;
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
 }

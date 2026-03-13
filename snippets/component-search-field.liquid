@@ -1,40 +1,43 @@
 {{ 'events-search.css' | asset_url | stylesheet_tag }}
 
-{% comment %} {% liquid
-  assign search_placeholder = placeholder | default: 'Search'
-  assign search_name = input_name | default: 'q'
-  assign search_action = form_action | default: routes.search_url
-  assign search_value = value | default: search.terms
-  assign search_border = border_color | default: '#0f5c47'
-  assign search_text = text_color | default: '#7a7a7a'
-  assign search_id = id | default: 'search-bar-' | append: section.id | append: '-' | append: search_name
-%} {% endcomment %}
-
+{% comment %}
+  {% liquid
+    assign search_placeholder = placeholder | default: 'Search'
+    assign search_name = input_name | default: 'q'
+    assign search_action = form_action | default: routes.search_url
+    assign search_value = value | default: search.terms
+    assign search_border = border_color | default: '#0f5c47'
+    assign search_text = text_color | default: '#7a7a7a'
+    assign search_id = id | default: 'search-bar-' | append: section.id | append: '-' | append: search_name
+  %}
+{% endcomment %}
 
 <form
-  action="{{ search_action }}"
-  method="get"
-  role="search"
-  class="search-field-component"
+  action='{{ search_action }}'
+  method='get'
+  role='search'
+  class='search-field-component'
 >
-    <label for="{{ search_id }}" class="visually-hidden">{{ label | default: 'Search' }}</label>
-    {% comment %} <span class="search-field-component__icon" aria-hidden="true">
+  <label for='{{ search_id }}' class='visually-hidden'>{{ label | default: 'Search' }}</label>
+  {% comment %}
+    <span class="search-field-component__icon" aria-hidden="true">
       <svg viewBox="0 0 24 24" focusable="false">
         <circle cx="10.5" cy="10.5" r="6.5"></circle>
         <line x1="15.5" y1="15.5" x2="21" y2="21"></line>
       </svg>
-    </span> {% endcomment %}
-    <span class="search-field-component__icon">{% render 'search-icon' %}</span>
-    <input
-      id="{{ search_id }}"
-      class="search-field-component__input"
-      type="search"
-      name="{{ search_name }}"
-      value="{{ search_value | escape }}"
-      placeholder="Search Events"
-      autocorrect="off"
-      autocomplete="off"
-      autocapitalize="off"
-      spellcheck="false"
-    >
+    </span>
+  {% endcomment %}
+  <span class='search-field-component__icon'>{% render 'search-icon' %}</span>
+  <input
+    id='{{ search_id }}'
+    class='search-field-component__input'
+    type='search'
+    name='{{ search_name }}'
+    value='{{ search_value | escape }}'
+    placeholder='Search Events'
+    autocorrect='off'
+    autocomplete='off'
+    autocapitalize='off'
+    spellcheck='false'
+  >
 </form>

@@ -1,67 +1,67 @@
 .events-banner {
+  min-height: 656px;
+  display: flex;
+  align-items: center;
+  padding: 32px 0;
+}
+
+.events-banner__inner {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  gap: 56px;
+  align-items: center;
+}
+
+.events-banner__media img {
+  display: block;
+  width: 100%;
+  height: 536px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.events-banner__content {
+  color: #ffffff;
+  max-width: 520px;
+}
+
+.events-banner__heading {
+  margin: 0 0 24px;
+  color: #ffffff;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  line-height: 1;
+}
+
+.events-banner__text p {
+  margin: 0 0 18px;
+}
+
+.events-banner__text p:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 749px) {
+  .events-banner {
     min-height: 656px;
-    display: flex;
-    align-items: center;
-    padding: 32px 0;
+    padding: 24px 0;
   }
 
   .events-banner__inner {
-    width: 100%;
-    display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
-    gap: 56px;
-    align-items: center;
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 
   .events-banner__media img {
-    display: block;
-    width: 100%;
-    height: 536px;
-    object-fit: cover;
-    border-radius: 16px;
-  }
-
-  .events-banner__content {
-    color: #ffffff;
-    max-width: 520px;
+    height: 320px;
   }
 
   .events-banner__heading {
-    margin: 0 0 24px;
-    color: #ffffff;
-    font-size: clamp(2.5rem, 4vw, 4rem);
-    line-height: 1;
+    font-size: 2.25rem;
+    margin-bottom: 16px;
   }
 
-  .events-banner__text p {
-    margin: 0 0 18px;
+  .events-banner__text {
+    font-size: 1rem;
   }
-
-  .events-banner__text p:last-child {
-    margin-bottom: 0;
-  }
-
-  @media screen and (max-width: 749px) {
-    .events-banner {
-      min-height: 656px;
-      padding: 24px 0;
-    }
-
-    .events-banner__inner {
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
-
-    .events-banner__media img {
-      height: 320px;
-    }
-
-    .events-banner__heading {
-      font-size: 2.25rem;
-      margin-bottom: 16px;
-    }
-
-    .events-banner__text {
-      font-size: 1rem;
-    }
-  }
+}

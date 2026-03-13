@@ -1,4 +1,4 @@
-const ON_CHANGE_DEBOUNCE_TIMER = 300;
+const ON_CHANGE_DEBOUNCE_TIMER = 300
 
 const PUB_SUB_EVENTS = {
   cartUpdate: 'cart-update',
@@ -6,4 +6,4 @@ const PUB_SUB_EVENTS = {
   optionValueSelectionChange: 'option-value-selection-change',
   variantChange: 'variant-change',
   cartError: 'cart-error',
-};
+}

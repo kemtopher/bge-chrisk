@@ -1,11 +1,11 @@
 {{ 'events-banner.css' | asset_url | stylesheet_tag }}
 
 <section
-  class="events-banner"
-  style="background-color: {{ section.settings.background_color }};"
+  class='events-banner'
+  style='background-color: {{ section.settings.background_color }};'
 >
-  <div class="events-banner__inner page-width">
-    <div class="events-banner__media">
+  <div class='events-banner__inner page-width'>
+    <div class='events-banner__media'>
       {% if section.settings.image != blank %}
         {{
           section.settings.image
@@ -19,22 +19,21 @@
       {% endif %}
     </div>
 
-    <div class="events-banner__content">
+    <div class='events-banner__content'>
       {% if section.settings.heading != blank %}
-        <h2 class="events-banner__heading typography__large-header">
+        <h2 class='events-banner__heading typography__large-header'>
           {{ section.settings.heading }}
         </h2>
       {% endif %}
 
       {% if section.settings.text != blank %}
-        <div class="events-banner__text typography__banner-copy">
+        <div class='events-banner__text typography__banner-copy'>
           {{ section.settings.text }}
         </div>
       {% endif %}
     </div>
   </div>
 </section>
-
 
 {% schema %}
 {
