@@ -1,19 +1,30 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-    "sections": {
-        "banner": {
-            "type": "events-banner",
-            "settings": {
-                "padding_top": 36,
-                "padding_bottom": 36
-            }
-        },
-        "events": {
-            "type": "events-filter",
-            "settings": {
-                "padding_top": 36,
-                "padding_bottom": 36
-            }
-        }
+  "sections": {
+    "banner": {
+      "type": "events-banner",
+      "settings": {
+        "image": "shopify://shop_images/Webversion-BIG_GREEN_EGG_FF_2018_HI_RES_321.webp",
+        "heading": "Big Green Events",
+        "text": "<p>Cooking on a Big Green Egg is more than the act of making delicious food. It's a celebration of flavor, creativity, and bringing people together.</p><p>Come join us to learn new techniques, taste delicious recipes, and be part of the community.</p>",
+        "background_color": "#00573f"
+      }
     },
-    "order": ["banner", "events"]
+    "events": {
+      "type": "events-filter",
+      "settings": {}
+    }
+  },
+  "order": [
+    "banner",
+    "events"
+  ]
 }
